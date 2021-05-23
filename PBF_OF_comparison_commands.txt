@@ -1,0 +1,8 @@
+# Forward: PatchBased, 	PSNR: PatchBased
+--SR_model RCAN --phase test --pb_forward True --psnr_cond_pbf True --four_forward False --cpu False --save_test ../test_results/RCAN_RG1_RB20_F185_forward_PBF_PSNR_PBF --pre_train D:/JY/00_Research/JYSR/00_Trained_SR_models/200805_RCAN_RG1_F185/model_latest.pt --te_dset_name DIV2K --n_resgroups 1 --n_resblocks 20 --n_feats 185
+
+# Forward: Original, 	PSNR: PatchBased
+--SR_model RCAN --phase test --pb_forward False --psnr_cond_pbf True --four_forward False --cpu True --save_test ../test_results/RCAN_RG1_RB20_F185_forward_OF_PSNR_PBF --pre_train D:/JY/00_Research/JYSR/00_Trained_SR_models/200805_RCAN_RG1_F185/model_latest.pt --te_dset_name DIV2K --n_resgroups 1 --n_resblocks 20 --n_feats 185
+
+# Forward: 4-part-Div,	PSNR: PatchBased
+--SR_model RCAN --phase test --pb_forward False --psnr_cond_pbf True --four_forward True --cpu False --save_test ../test_results/RCAN_RG1_RB20_F185_forward_4divF_PSNR_PBF --pre_train D:/JY/00_Research/JYSR/00_Trained_SR_models/200805_RCAN_RG1_F185/model_latest.pt --te_dset_name DIV2K --n_resgroups 1 --n_resblocks 20 --n_feats 185

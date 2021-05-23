@@ -1,0 +1,16 @@
+# train SR models
+--template EDSR_train 	--n_resblocks 32 --n_feats 256		#tr: DIV2K, vl: Set14
+--template RCAN_train 	--n_resgroups 10 --n_resblocks 20 --n_feats 64	#tr: DIV2K, vl: DIV2K 10
+--template RRDB_train 	--n_rir 23 --n_feats 64 --n_feats 32		#tr: DIV2K, vl: Set14 
+--template SAN_train 	--n_resgroups 10 --n_resblocks 20 --n_feats 64	#tr: DIV2K, vl: DIV2K 10
+
+# test code
+--SR_model RCAN --phase test --forward_ver 1 --PSNR_ver 2 --pre_train D:/JY/00_Research/JYSR/00_Trained_SR_models/RCAN_original/models_ECCV2018RCAN/RCAN_BIX4.pt --te_dset_name DIV2K --n_resgroups 10 --n_resblocks 20 --n_feats 64 --save_test ../test_results/RCAN_ORIGINAL
+--SR_model RRDB --RRDB_ref True --patch_size 128 --phase test --cpu False --forward_ver 1 --PSNR_ver 2 --pre_train D:/JY/00_Research/JYSR/00_Trained_SR_models/RRDB_original/RRDB_PSNR_x4.pth --te_dset_name DIV2K --n_rir 23 --n_feats 64 --n_feats2 32 --save_test ../test_results/RRDB_original
+
+
+--SR_model RCAN --phase test --pre_train D:/JY/00_Research/JYSR/00_Trained_SR_models/200805_RCAN_RG1_F185/model_latest.pt --te_dset_name DIV2K --n_resgroups 1 --n_resblocks 20 --n_feats 185 --save_test ../test_results/RCAN_RG1_RB20_F185 --pb_forward True
+
+--SR_model EDSR --pre_train ../pretrained_models/EDSR/EDSR_BIX4.pt --te_dset_name DIV2K --n_resblocks 32 --n_feats 256 --save_test ../test_results/EDSR_RB32_F256
+--SR_model RCAN --pre_train ../pretrained_models/RCAN/RCAN_BIX4.pt --te_dset_name DIV2K --n_resgroups 10 --n_resblocks 20 --n_feats 64 --save_test ../test_results/RCAN_RG10_RB20_F64
+--SR_model RRDB --RRDB_ref --pre_train ../pretrained_models/RRDB/RRDB_BIX4.pt --te_dset_n                                                                                                                                                                                                                                                                                  
